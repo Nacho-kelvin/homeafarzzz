@@ -1,0 +1,318 @@
+:root {
+  --bg-deep: #071c22;
+  --bg-mid: #0a2f39;
+  --panel-dark: rgba(8, 24, 29, 0.72);
+  --panel-light: rgba(255, 255, 255, 0.08);
+  --text: #ecf3f3;
+  --muted: #bfd0d0;
+  --accent: #ef8d1d;
+  --accent-dark: #d76d11;
+  --light-amber: #ffb565;
+  --shadow: rgba(2, 11, 14, 0.75);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  font-family: "Manrope", sans-serif;
+  background: radial-gradient(circle at top, rgba(74, 141, 154, 0.35), transparent 35%),
+    linear-gradient(180deg, #071e24 0%, #0b2e38 100%);
+  color: var(--text);
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 32px;
+}
+
+.page-shell {
+  width: min(1200px, 100%);
+}
+
+.contact-panel {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.02fr 1.08fr;
+  gap: 28px;
+  align-items: center;
+  padding: 40px 26px 26px;
+  border-radius: 22px;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02)),
+    rgba(6, 16, 20, 0.72);
+  box-shadow: 0 30px 60px rgba(1, 10, 12, 0.55);
+  overflow: hidden;
+}
+
+.contact-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255,255,255,0.03) 0,
+      rgba(255,255,255,0.03) 2px,
+      transparent 2px,
+      transparent 22px
+    ),
+    repeating-linear-gradient(
+      180deg,
+      rgba(12, 34, 39, 0.65) 0,
+      rgba(12, 34, 39, 0.65) 18px,
+      rgba(20, 60, 67, 0.75) 18px,
+      rgba(20, 60, 67, 0.75) 36px
+    );
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.visual-block,
+.content-block {
+  position: relative;
+  z-index: 1;
+}
+
+.visual-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 620px;
+  padding: 16px 18px 12px;
+}
+
+.food-card {
+  position: relative;
+  width: min(100%, 490px);
+  aspect-ratio: 1.15;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 25px 40px rgba(0, 0, 0, 0.35);
+  border: 3px solid rgba(255,255,255,0.08);
+  transform: translate(-10px, 30px);
+}
+
+.food-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.9) contrast(0.95);
+}
+
+.arrow-graphic {
+  position: absolute;
+  right: 8%;
+  bottom: 7%;
+  width: 410px;
+  height: 250px;
+  transform: rotate(-7deg);
+  filter: drop-shadow(0 12px 20px rgba(0,0,0,0.2));
+}
+
+.arrow-inner {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #f7a53f 0%, #e77e16 36%, #c8600b 100%);
+  border-radius: 44% 56% 52% 48% / 58% 40% 60% 42%;
+  clip-path: polygon(
+    0% 44%,
+    52% 44%,
+    52% 20%,
+    100% 20%,
+    100% 58%,
+    52% 58%,
+    52% 100%,
+    0% 100%
+  );
+  box-shadow: inset 0 0 0 4px rgba(85, 48, 13, 0.15);
+}
+
+.arrow-inner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 32%, rgba(52, 26, 7, 0.68) 0 3px, transparent 4px),
+    radial-gradient(circle at 27% 32%, rgba(52, 26, 7, 0.68) 0 3px, transparent 4px),
+    radial-gradient(circle at 37% 32%, rgba(52, 26, 7, 0.68) 0 3px, transparent 4px),
+    radial-gradient(circle at 46% 32%, rgba(52, 26, 7, 0.68) 0 3px, transparent 4px),
+    radial-gradient(circle at 58% 32%, rgba(52, 26, 7, 0.68) 0 3px, transparent 4px),
+    radial-gradient(circle at 70% 32%, rgba(52, 26, 7, 0.68) 0 3px, transparent 4px),
+    radial-gradient(circle at 82% 32%, rgba(52, 26, 7, 0.68) 0 3px, transparent 4px),
+    radial-gradient(circle at 90% 32%, rgba(52, 26, 7, 0.68) 0 3px, transparent 4px);
+  opacity: 0.9;
+}
+
+.arrow-inner::after {
+  content: "";
+  position: absolute;
+  right: 16px;
+  bottom: 10px;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.14), rgba(255,255,255,0.02));
+  transform: rotate(35deg);
+  filter: blur(0.5px);
+}
+
+.content-block {
+  padding: 30px 20px 30px 10px;
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  color: var(--light-amber);
+  font-size: 0.82rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+h1 {
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(3.2rem, 4vw, 5rem);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  max-width: 520px;
+}
+
+.intro {
+  margin: 18px 0 28px;
+  max-width: 540px;
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 1.03rem;
+}
+
+.contact-form {
+  display: grid;
+  gap: 18px;
+  max-width: 560px;
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+label {
+  display: grid;
+  gap: 8px;
+  font-weight: 600;
+  color: #e9f2f2;
+}
+
+label span {
+  font-size: 0.84rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(236, 243, 243, 0.85);
+}
+
+input,
+textarea {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(9, 25, 31, 0.45);
+  border-radius: 12px;
+  padding: 0.95rem 1rem;
+  color: var(--text);
+  font: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(223, 237, 237, 0.5);
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: rgba(247, 165, 63, 0.8);
+  box-shadow: 0 0 0 4px rgba(247, 165, 63, 0.15);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+button {
+  justify-self: start;
+  border: none;
+  border-radius: 999px;
+  padding: 1rem 1.7rem;
+  background: linear-gradient(180deg, var(--light-amber), var(--accent));
+  color: #1d1209;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 18px 28px rgba(214, 109, 17, 0.35);
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 900px) {
+  .contact-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .visual-block {
+    min-height: 420px;
+  }
+
+  .food-card {
+    transform: none;
+    width: min(100%, 560px);
+  }
+
+  .arrow-graphic {
+    right: 4%;
+    bottom: 3%;
+    width: 300px;
+    height: 200px;
+  }
+
+  .content-block {
+    padding-top: 4px;
+  }
+}
+
+@media (max-width: 560px) {
+  body {
+    padding: 18px;
+  }
+
+  .contact-panel {
+    padding: 18px 14px 22px;
+  }
+
+  .field-row {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 2.8rem;
+  }
+
+  .arrow-graphic {
+    width: 230px;
+    height: 150px;
+  }
+}
